@@ -1,12 +1,4 @@
 <?php
-trait handleException
-{
-    public function printException(): void
-    {
-        echo "<b>Exception: </b>" . $this->getMessage() . "<br />\n";
-        echo "Codigo: " . $this->getCode() . "<br />\n";
-    }
-}
 
 class notNumericException extends \Exception
 {
@@ -18,8 +10,6 @@ class notNumericException extends \Exception
             code: 403
         );
     }
-
-    use handleException;
 }
 
 class outOfRangeAgeException extends \Exception
@@ -32,8 +22,6 @@ class outOfRangeAgeException extends \Exception
             code: 403
         );
     }
-
-    use handleException;
 }
 
 
@@ -47,18 +35,11 @@ class genericStringException extends \Exception
             code: 403
         );
     }
-
-    use handleException;
 }
 
 function exceptionHandler($e): void
 {
     http_response_code($e->getCode());
 
-    match (true) {
-        $e instanceof notNumericException,
-        $e instanceof outOfRangeAgeException,
-        $e instanceof genericStringException => $e->printException(),
-        default => printf("<b>Exception: </b> %s <br /> Codigo: %d <br />\n", $e->getMessage(), $e->getCode())
-    };
+    printf("<b>Exception: </b> %s <br /> Codigo: %d <br />\n", $e->getMessage(), $e->getCode());
 }
