@@ -18,11 +18,7 @@ include 'Functions.php';
             <label for="name">Nombre:</label>
             <input type="text" id="name" name="name">
             <label for="age">Edad:</label>
-            <select id="age" name="age">
-                <?php
-                echo createYears();
-                ?>
-            </select>
+            <input type="number" id="age" name="age">
             <label for="course">Curso:</label>
             <input type="text" id="course" name="course">
             <button type="submit">Ver datos</button>

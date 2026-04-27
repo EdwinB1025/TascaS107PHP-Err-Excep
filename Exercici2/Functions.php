@@ -71,17 +71,6 @@ function getResult(): ?string
 }
 
 
-function createYears(): string
-{
-    $options = "";
-    for ($i = -2; $i <= 125; $i++) {
-        $value = $i . " años";
-        $options .= '<option value = "' . $i . '">' . $value . '</option>' . "\n";
-    }
-
-    return $options;
-}
-
 
 /*
 Ya sea un array asociativo de opciones, o el filtro que se aplicará a cada entrada, que puede ser un filtro 
